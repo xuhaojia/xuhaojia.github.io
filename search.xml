@@ -29,9 +29,7 @@
     <entry>
       <title><![CDATA[一键安装最新内核并开启 BBR 脚本]]></title>
       <url>/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E5%86%85%E6%A0%B8%E5%B9%B6%E5%BC%80%E5%90%AF-BBR-%E8%84%9A%E6%9C%AC/</url>
-      <content type="html"><![CDATA[<center><img src="/Users/xuy/blog/source/images/bbr.jpg" alt="BBR"> </center>
-
-<blockquote>
+      <content type="html"><![CDATA[<blockquote>
 <p>最近，Google 开源了其<code>TCP BBR</code>拥塞控制算法，并提交到了<code>Linux</code>内核，从 4.9 开始，<code>Linux</code>内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。</p>
 <p>根据实地测试，在部署了最新版内核并开启了<code>TCP BBR</code>的机器上，网速甚至可以提升好几个数量级。</p>
 </blockquote>
@@ -41,7 +39,7 @@
 <li>内存要求：≥128M</li>
 </ul>
 <h1 id="关于本脚本"><a href="#关于本脚本" class="headerlink" title="关于本脚本"></a>关于本脚本</h1><ul>
-<li>1、<strong>本文出处</strong>:  <a href="https://teddysun.com/489.html" target="_blank" rel="noopener">秋水逸冰</a></li>
+<li>1、<strong>本文出处</strong>:<a href="https://teddysun.com/489.html" target="_blank" rel="noopener">秋水逸冰</a></li>
 <li>2、本脚本已在<code>Vultr</code>上的<code>VPS</code>全部测试通过。</li>
 <li>3、当脚本检测到<code>VPS</code>的虚拟方式为<code>OpenVZ</code>时，会提示错误，并自动退出安装。</li>
 <li>4、脚本运行完重启发现开不了机的，打开<code>VPS</code>后台控制面板的<code>VNC</code>, 开机卡在<code>grub</code>引导, 手动选择内核即可。</li>
