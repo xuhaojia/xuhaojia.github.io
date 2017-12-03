@@ -3,6 +3,64 @@
   
     
     <entry>
+      <title><![CDATA[Mac OS配置SSH密钥登入CentOS]]></title>
+      <url>/Mac-OS%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5%E7%99%BB%E5%85%A5CentOS/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在连接SSH服务器或者使用<code>scp</code>命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="keyword">my</span></span><br></pre></td></tr></table></figure>
+<p>一个回车便能直接登入。</p>
+<h1 id="配置和添加"><a href="#配置和添加" class="headerlink" title="配置和添加"></a>配置和添加</h1><ul>
+<li><p>产生密钥和公钥</p>
+<p>在本地运行：</p>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -<span class="selector-tag">b</span> <span class="number">4096</span></span><br></pre></td></tr></table></figure>
+<p>一路回车即可在本机创建好公钥和密钥。</p>
+<ul>
+<li><p>复制公钥到服务器</p>
+<p>在本地运行：</p>
+</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">copy</span>-<span class="built_in">id</span> root@&lt;ip地址&gt;</span><br></pre></td></tr></table></figure>
+<p>然后即可将你的公钥复制到服务器并设置好正确的权限。</p>
+<p>接下来便可使用：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="tag">&lt;<span class="name">ip地址</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需要一个回车即可完成登录，<code>SCP</code>命令同理。</p>
+<h1 id="配置别名登录（可选）"><a href="#配置别名登录（可选）" class="headerlink" title="配置别名登录（可选）"></a>配置别名登录（可选）</h1><p>当然你也可以配置别名登录，避免输入用户名和<code>ip</code>地址。</p>
+<p>编辑 <strong>本地</strong> ssh配置文件：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/<span class="built_in">config</span></span><br></pre></td></tr></table></figure>
+<p>配置示例：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host myos   #别名，可以直接 ssh</span><br><span class="line">HostName 192.168.159.103   #具体的主机地址</span><br><span class="line">User root   #用户</span><br><span class="line">IdentityFile ~/.ssh/id_rsa   #私钥文件</span><br></pre></td></tr></table></figure>
+<p><code>:wq</code>保存后，就可以透过：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh myos</span></span><br></pre></td></tr></table></figure>
+<p>这样的命令登录到服务器，<code>scp</code>同理。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li><p>登录时提示没有权限</p>
+<p>在服务器运行下列命令可以设定权限：</p>
+</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~<span class="string">/.ssh/authorized_keys</span></span><br><span class="line">chmod 700 ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>私钥无法使用</p>
+<p>请使用<code>ssh-keygen -y</code> 回车后指定文件地址，即可登陆。</p>
+</li>
+</ul>
+<blockquote>
+<p>本文转载于:<a href="https://liwei2.com/2017/02/21/1016.html" target="_blank" rel="noopener">舞恸零一</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Mbp </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux 常用命令简单介绍(基础篇)]]></title>
       <url>/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D-%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
       <content type="html"><![CDATA[<center><img src="http://p07lo02hm.bkt.clouddn.com/linux-01.png" alt="linux"></center>

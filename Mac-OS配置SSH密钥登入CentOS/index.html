@@ -138,13 +138,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ixuy&#39;s Blog">
-<meta property="og:url" content="http://www.ixuy.top/categories/Essence/index.html">
+<meta name="description" content="在连接SSH服务器或者使用scp命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：  1ssh my 一个回车便能直接登入。 配置和添加 产生密钥和公钥 在本地运行：   1ssh-keygen -t rsa -b ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS配置SSH密钥登入CentOS">
+<meta property="og:url" content="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/index.html">
 <meta property="og:site_name" content="ixuy&#39;s Blog">
+<meta property="og:description" content="在连接SSH服务器或者使用scp命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：  1ssh my 一个回车便能直接登入。 配置和添加 产生密钥和公钥 在本地运行：   1ssh-keygen -t rsa -b 4096 一路回车即可在本机创建好公钥和密钥。  复制公钥到服务器 在本地运行">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-03T15:35:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ixuy&#39;s Blog">
+<meta name="twitter:title" content="Mac OS配置SSH密钥登入CentOS">
+<meta name="twitter:description" content="在连接SSH服务器或者使用scp命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：  1ssh my 一个回车便能直接登入。 配置和添加 产生密钥和公钥 在本地运行：   1ssh-keygen -t rsa -b 4096 一路回车即可在本机创建好公钥和密钥。  复制公钥到服务器 在本地运行">
 
 
 
@@ -174,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ixuy.top/categories/Essence/"/>
+  <link rel="canonical" href="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/"/>
 
 
 
 
 
-  <title>分类: 精华 | ixuy's Blog</title>
+  <title>Mac OS配置SSH密钥登入CentOS | ixuy's Blog</title>
   
 
 
@@ -199,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,55 +320,239 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>精华<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixuy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ixuy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/Linux-常用命令简单介绍-基础篇/" itemprop="url">
-              
-                <span itemprop="name">Linux 常用命令简单介绍(基础篇)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Mac OS配置SSH密钥登入CentOS</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T00:00:00+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T00:00:00+08:00">
+                2017-12-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Macbook/" itemprop="url" rel="index">
+                    <span itemprop="name">Mbp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在连接SSH服务器或者使用<code>scp</code>命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="keyword">my</span></span><br></pre></td></tr></table></figure>
+<p>一个回车便能直接登入。</p>
+<h1 id="配置和添加"><a href="#配置和添加" class="headerlink" title="配置和添加"></a>配置和添加</h1><ul>
+<li><p>产生密钥和公钥</p>
+<p>在本地运行：</p>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -<span class="selector-tag">b</span> <span class="number">4096</span></span><br></pre></td></tr></table></figure>
+<p>一路回车即可在本机创建好公钥和密钥。</p>
+<ul>
+<li><p>复制公钥到服务器</p>
+<p>在本地运行：</p>
+</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">copy</span>-<span class="built_in">id</span> root@&lt;ip地址&gt;</span><br></pre></td></tr></table></figure>
+<p>然后即可将你的公钥复制到服务器并设置好正确的权限。</p>
+<p>接下来便可使用：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="tag">&lt;<span class="name">ip地址</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需要一个回车即可完成登录，<code>SCP</code>命令同理。</p>
+<h1 id="配置别名登录（可选）"><a href="#配置别名登录（可选）" class="headerlink" title="配置别名登录（可选）"></a>配置别名登录（可选）</h1><p>当然你也可以配置别名登录，避免输入用户名和<code>ip</code>地址。</p>
+<p>编辑 <strong>本地</strong> ssh配置文件：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/<span class="built_in">config</span></span><br></pre></td></tr></table></figure>
+<p>配置示例：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host myos   #别名，可以直接 ssh</span><br><span class="line">HostName 192.168.159.103   #具体的主机地址</span><br><span class="line">User root   #用户</span><br><span class="line">IdentityFile ~/.ssh/id_rsa   #私钥文件</span><br></pre></td></tr></table></figure>
+<p><code>:wq</code>保存后，就可以透过：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh myos</span></span><br></pre></td></tr></table></figure>
+<p>这样的命令登录到服务器，<code>scp</code>同理。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li><p>登录时提示没有权限</p>
+<p>在服务器运行下列命令可以设定权限：</p>
+</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~<span class="string">/.ssh/authorized_keys</span></span><br><span class="line">chmod 700 ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>私钥无法使用</p>
+<p>请使用<code>ssh-keygen -y</code> 回车后指定文件地址，即可登陆。</p>
+</li>
+</ul>
+<blockquote>
+<p>本文转载于:<a href="https://liwei2.com/2017/02/21/1016.html" target="_blank" rel="noopener">舞恸零一</a></p>
+</blockquote>
 
       
     </div>
+    <div>
+      
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+
+     <div>    
+      
+      <ul class="post-copyright">
+         <li class="post-copyright-link">
+          <strong>本文作者：</strong>
+          <a href="/" title="欢迎访问 ixuy 的个人博客">ixuy</a>
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文标题：</strong>
+          <a href="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/" title="Mac OS配置SSH密钥登入CentOS">Mac OS配置SSH密钥登入CentOS</a>
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/" title="Mac OS配置SSH密钥登入CentOS">http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/</a>
+        </li> 
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          转载请注明出处！
+        </li>
+      </ul>
+     </div>
+    
+  
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Linux-常用命令简单介绍-基础篇/" rel="next" title="Linux 常用命令简单介绍(基础篇)">
+                <i class="fa fa-chevron-left"></i> Linux 常用命令简单介绍(基础篇)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -372,6 +560,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -392,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -446,6 +647,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置和添加"><span class="nav-number">1.</span> <span class="nav-text">配置和添加</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置别名登录（可选）"><span class="nav-number">2.</span> <span class="nav-text">配置别名登录（可选）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">3.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -583,6 +800,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
 
   
 
