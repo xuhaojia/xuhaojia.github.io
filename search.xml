@@ -3,6 +3,43 @@
   
     
     <entry>
+      <title><![CDATA[去掉（隐藏）mac终端前面的计算机名]]></title>
+      <url>/%E5%8E%BB%E6%8E%89%EF%BC%88%E9%9A%90%E8%97%8F%EF%BC%89mac%E7%BB%88%E7%AB%AF%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%90%8D/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>mac终端（命令行）打开时，在用户名之前会带有一长串的计算机名，太长会影响查看，现给隐藏掉</p>
+</blockquote>
+<ul>
+<li><p>默认是带有当前主机名称和工作路径以及当前登陆用户</p>
+</li>
+<li><p>打开<code>/etc/bashrc</code></p>
+</li>
+<li><p>编辑<code>PS1=’\h:\W \u\$</code></p>
+</li>
+</ul>
+<blockquote>
+<p><code>\h</code>指的是主机</p>
+<p><code>\W</code>指的是当前工作目录</p>
+<p><code>\u</code>指的是当前用户</p>
+</blockquote>
+<p>根据需求可以将其中的某几项给去掉，建议<code>\h</code>,<code>\u</code>可以去掉，<strong><code>\w</code></strong>别去掉。</p>
+<ul>
+<li>修改之后，变成<code>PS1=&#39;\W \$ &#39;</code>，重启（新）终端</li>
+</ul>
+<blockquote>
+<p>本文转载于:<a href="http://www.liuxiaojia.cc/2016/10/28/environment/%E5%8E%BB%E6%8E%89%EF%BC%88%E9%9A%90%E8%97%8F%EF%BC%89mac%E7%BB%88%E7%AB%AF%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%90%8D/" target="_blank" rel="noopener">www.liuxiaojia.cc</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Mbp </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac OS配置SSH密钥登入CentOS]]></title>
       <url>/Mac-OS%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5%E7%99%BB%E5%85%A5CentOS/</url>
       <content type="html"><![CDATA[<blockquote>
