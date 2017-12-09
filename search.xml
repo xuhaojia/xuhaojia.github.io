@@ -3,6 +3,80 @@
   
     
     <entry>
+      <title><![CDATA[VPS服务器前期准备]]></title>
+      <url>/VPS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>以BWG为例，新购的服务器都比较“干净”，所以要打整（准备）一番…</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器内核、软件更新；</span></span><br><span class="line">yum -y update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让服务器时间同步为北京（上海）时间</span></span><br><span class="line">cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为之后能顺利安装shadowsocks，还需提前安装wget</span></span><br><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器定时重启，需安装Crontab</span></span><br><span class="line">yum install vixie-cron crontabs</span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">chkconfig crond on</span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">service crond start</span><br><span class="line"><span class="comment"># 添加crontab定时执行任务</span></span><br><span class="line">crontab -e</span><br><span class="line"><span class="comment"># 0 5表示每天凌晨五点重启</span></span><br><span class="line">0 5 * * * /sbin/reboot</span><br><span class="line"><span class="comment">#重启 crond 服务</span></span><br><span class="line">service crond restart</span><br><span class="line"><span class="comment"># 重启服务器</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Shadowsocks 一键安装脚本（四合一）]]></title>
+      <url>/Shadowsocks-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%EF%BC%88%E5%9B%9B%E5%90%88%E4%B8%80%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文转载于:<a href="https://teddysun.com/486.html" target="_blank" rel="noopener">秋水逸冰</a></p>
+</blockquote>
+<h1 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h1><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+</p>
+<p>内存要求：≥128M</p>
+<h2 id="关于本脚本"><a href="#关于本脚本" class="headerlink" title="关于本脚本"></a>关于本脚本</h2><p>1、一键安装 <code>Shadowsocks-Python</code>，<code>ShadowsocksR</code>，<code>Shadowsocks-Go</code>，<code>Shadowsocks-libev</code> 版（四选一）服务端；</p>
+<p>2、各版本的启动脚本及配置文件名不再重合；</p>
+<p>3、每次运行可安装一种版本；</p>
+<p>4、支持以多次运行来安装多个版本，且各个版本可以共存（注意端口号需设成不同）；</p>
+<p>5、若已安装多个版本，则卸载时也需多次运行（每次卸载一种）；</p>
+<p>6、<code>Shadowsocks-Python</code> 和 <code>ShadowsocksR</code> 安装后不可同时启动（因为本质上都属 <strong>Python</strong> 版）。</p>
+<h2 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h2><ul>
+<li>服务器端口：自己设定（如不设定，默认为 8989）</li>
+<li>密码：自己设定（如不设定，默认为 teddysun.com）</li>
+<li>加密方式：自己设定（如不设定，Python 和 libev 版默认为 aes-256-gcm，R 和 Go 版默认为 aes-256-cfb）</li>
+<li>协议（protocol）：自己设定（如不设定，默认为 origin）（仅限 ShadowsocksR 版）</li>
+<li>混淆（obfs）：自己设定（如不设定，默认为 plain）（仅限 ShadowsocksR 版）</li>
+<li>备注：脚本默认创建单用户配置文件，如需配置多用户，请手动修改相应的配置文件后重启即可。</li>
+</ul>
+<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><ul>
+<li><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">常规版 Windows 客户端</a></p>
+</li>
+<li><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases" target="_blank" rel="noopener">ShadowsocksR 版 Windows 客户端</a></p>
+</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用root用户登录，运行以下命令：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --<span class="keyword">no</span>-check-certificate -O shadowsocks-<span class="keyword">all</span>.<span class="keyword">sh</span> http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/teddysun/shadowsocks_install/master/shadowsocks-<span class="keyword">all</span>.<span class="keyword">sh</span></span><br><span class="line">chmod +<span class="keyword">x</span> shadowsocks-<span class="keyword">all</span>.<span class="keyword">sh</span></span><br><span class="line">./shadowsocks-<span class="keyword">all</span>.<span class="keyword">sh</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks-<span class="keyword">all</span>.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装完成后，脚本提示如下"><a href="#安装完成后，脚本提示如下" class="headerlink" title="安装完成后，脚本提示如下"></a>安装完成后，脚本提示如下</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Congratulations, your_shadowsocks_version install completed!</span><br><span class="line">Your Server IP        :your_server_ip</span><br><span class="line">Your Server Port      :your_server_port</span><br><span class="line">Your Password         :your_password</span><br><span class="line">Your Encryption <span class="function"><span class="keyword">Method</span>:</span>your_encryption_method</span><br><span class="line"></span><br><span class="line">Your QR Code: (<span class="keyword">For</span> Shadowsocks Windows, OSX, Android <span class="keyword">and</span> iOS clients)</span><br><span class="line"> ss:<span class="comment">//your_encryption_method:your_password@your_server_ip:your_server_port</span></span><br><span class="line">Your QR Code <span class="keyword">has</span> been saved <span class="keyword">as</span> a PNG file path:</span><br><span class="line"> your_path.png</span><br><span class="line"></span><br><span class="line">Welcome <span class="keyword">to</span> visit:https:<span class="comment">//teddysun.com/486.html</span></span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+<h3 id="卸载方法"><a href="#卸载方法" class="headerlink" title="卸载方法"></a>卸载方法</h3><p>若已安装多个版本，则卸载时也需多次运行（每次卸载一种）</p>
+<p>使用root用户登录，运行以下命令：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks-all<span class="selector-class">.sh</span> uninstall</span><br></pre></td></tr></table></figure>
+<h3 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h3><p><strong>Shadowsocks-Python 版：</strong></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-python start	<span class="meta">#启动</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-python stop	<span class="meta">#停止</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-python restart	<span class="meta">#重启</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-python status	<span class="meta">#查看状态</span></span><br></pre></td></tr></table></figure>
+<p><strong>ShadowsocksR 版：</strong></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-r start	<span class="meta">#启动</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-r stop	<span class="meta">#停止</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-r restart		<span class="meta">#重启</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-r status	<span class="meta">#查看状态</span></span><br></pre></td></tr></table></figure>
+<p><strong>Shadowsocks-Go 版：</strong></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-go start		<span class="meta">#启动</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-go stop			<span class="meta">#停止</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-go restart		<span class="meta">#重启</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-go status		<span class="meta">#查看状态</span></span><br></pre></td></tr></table></figure>
+<p><strong>Shadowsocks-libev 版：</strong></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-libev start	<span class="meta">#启动</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-libev stop	<span class="meta">#停止</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-libev restart	<span class="meta">#重启</span></span><br><span class="line"><span class="meta-keyword">/etc/</span>init.d/shadowsocks-libev status	<span class="meta">#查看状态</span></span><br></pre></td></tr></table></figure>
+<h3 id="各版本默认配置文件"><a href="#各版本默认配置文件" class="headerlink" title="各版本默认配置文件"></a>各版本默认配置文件</h3><p>Shadowsocks-Python 版：<code>/etc/shadowsocks-python/config.json</code></p>
+<p>ShadowsocksR 版：<code>/etc/shadowsocks-r/config.json</code></p>
+<p>Shadowsocks-Go 版：<code>/etc/shadowsocks-go/config.json</code></p>
+<p>Shadowsocks-libev 版：<code>/etc/shadowsocks-libev/config.json</code></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[去掉（隐藏）mac终端前面的计算机名]]></title>
       <url>/%E5%8E%BB%E6%8E%89%EF%BC%88%E9%9A%90%E8%97%8F%EF%BC%89mac%E7%BB%88%E7%AB%AF%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%90%8D/</url>
       <content type="html"><![CDATA[<blockquote>
