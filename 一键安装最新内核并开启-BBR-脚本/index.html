@@ -145,7 +145,7 @@
 <meta property="og:site_name" content="ixuy&#39;s Blog">
 <meta property="og:description" content="最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。 根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚至可以提升好几个数量级。  本脚本适用环境 系统支持：CentOS 6+，Debian 7+，Ubu">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-11T13:57:04.000Z">
+<meta property="og:updated_time" content="2017-12-11T14:17:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一键安装最新内核并开启 BBR 脚本">
 <meta name="twitter:description" content="最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。 根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚至可以提升好几个数量级。  本脚本适用环境 系统支持：CentOS 6+，Debian 7+，Ubu">
@@ -442,7 +442,7 @@
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用<code>root</code>用户登录，运行以下命令：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="keyword">N</span> --<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//github.<span class="keyword">com</span>/teddysun/across/raw/master/bbr.<span class="keyword">sh</span> &amp;&amp; chmod +<span class="keyword">x</span> bbr.<span class="keyword">sh</span> &amp;&amp; bash bbr.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
 <p>安装完成后，脚本会提示需要重启<code>VPS</code>，输入<code>y</code>并回车后重启。<br>重启完成后，进入<code>VPS</code>，验证一下是否成功安装最新内核并开启<code>TCP BBR</code>，输入以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看内核版本，含有 4.9.0 就表示 OK 了</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_available_congestion_control = bbr cubic reno</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_congestion_control = bbr</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.core.default_qdisc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.core.default_qdisc = fq</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">lsmod | grep bbr</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值有 tcp_bbr 模块即说明bbr已启动。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看内核版本，含有 4.14.5 就表示 OK 了</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_available_congestion_control = bbr cubic reno</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_congestion_control = bbr</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.core.default_qdisc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.core.default_qdisc = fq</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">lsmod | grep bbr</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值有 tcp_bbr 模块即说明bbr已启动。</span></span><br></pre></td></tr></table></figure>
 <p>注意：<strong>并不是所有的<code>VPS</code>都会有此返回值，若没有也属正常</strong>。</p>
 <h2 id="内核升级方法"><a href="#内核升级方法" class="headerlink" title="内核升级方法"></a>内核升级方法</h2><p>如果是<code>CentOS</code>系统，执行如下命令即可升级内核：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="attribute">--enablerepo</span>=elrepo-kernel -y install kernel-ml kernel-ml-devel</span><br></pre></td></tr></table></figure>
@@ -507,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bat批处理文件常见命令/" rel="next" title="bat批处理文件常见命令">
-                <i class="fa fa-chevron-left"></i> bat批处理文件常见命令
+              <a href="/171124/" rel="next" title="建站初衷">
+                <i class="fa fa-chevron-left"></i> 建站初衷
               </a>
             
           </div>
@@ -517,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Linux-常用命令简单介绍-基础篇/" rel="prev" title="Linux 常用命令简单介绍(基础篇)">
-                Linux 常用命令简单介绍(基础篇) <i class="fa fa-chevron-right"></i>
+              <a href="/bat批处理文件常见命令/" rel="prev" title="bat批处理文件常见命令">
+                bat批处理文件常见命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -674,7 +674,7 @@
 </div>
 
 
-<!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+<!-- <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
