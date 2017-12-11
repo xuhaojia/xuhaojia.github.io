@@ -138,17 +138,17 @@
 
 
 
-<meta name="description" content="echo:表示显示此命令后的字符 tiltle:设置窗口的标题 echo off:表示在此语句后所有运行的命令都不显示命令行本身 color:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如color 17表示背景为蓝色，前景为白色。 @:与echo off相象，但它是加在每个命令行">
+<meta name="description" content="SSH端口修改 输入下面命令：  1vim /etc/ssh/sshd_config  如果提示命令不存在，需要安装vim，以下命令二选一  123apt install -y vim//yum install -y vim 打开配置文件后，找到Port字样，后面一般为5位数字，该数字即为SSH端口，可自定义为任意数字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bat批处理文件常见命令">
-<meta property="og:url" content="http://www.ixuy.top/bat批处理文件常见命令/index.html">
+<meta property="og:title" content="搬瓦工VPS端口相关">
+<meta property="og:url" content="http://www.ixuy.top/搬瓦工VPS端口相关/index.html">
 <meta property="og:site_name" content="ixuy&#39;s Blog">
-<meta property="og:description" content="echo:表示显示此命令后的字符 tiltle:设置窗口的标题 echo off:表示在此语句后所有运行的命令都不显示命令行本身 color:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如color 17表示背景为蓝色，前景为白色。 @:与echo off相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。 pause:运行">
+<meta property="og:description" content="SSH端口修改 输入下面命令：  1vim /etc/ssh/sshd_config  如果提示命令不存在，需要安装vim，以下命令二选一  123apt install -y vim//yum install -y vim 打开配置文件后，找到Port字样，后面一般为5位数字，该数字即为SSH端口，可自定义为任意数字。  保存后，重启一下SSH服务。  1/etc/init.d/sshd res">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-27T14:47:33.000Z">
+<meta property="og:updated_time" content="2017-12-11T13:17:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bat批处理文件常见命令">
-<meta name="twitter:description" content="echo:表示显示此命令后的字符 tiltle:设置窗口的标题 echo off:表示在此语句后所有运行的命令都不显示命令行本身 color:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如color 17表示背景为蓝色，前景为白色。 @:与echo off相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。 pause:运行">
+<meta name="twitter:title" content="搬瓦工VPS端口相关">
+<meta name="twitter:description" content="SSH端口修改 输入下面命令：  1vim /etc/ssh/sshd_config  如果提示命令不存在，需要安装vim，以下命令二选一  123apt install -y vim//yum install -y vim 打开配置文件后，找到Port字样，后面一般为5位数字，该数字即为SSH端口，可自定义为任意数字。  保存后，重启一下SSH服务。  1/etc/init.d/sshd res">
 
 
 
@@ -178,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ixuy.top/bat批处理文件常见命令/"/>
+  <link rel="canonical" href="http://www.ixuy.top/搬瓦工VPS端口相关/"/>
 
 
 
 
 
-  <title>bat批处理文件常见命令 | ixuy's Blog</title>
+  <title>搬瓦工VPS端口相关 | ixuy's Blog</title>
   
 
 
@@ -334,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/bat批处理文件常见命令/">
+    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/搬瓦工VPS端口相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixuy">
@@ -351,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">bat批处理文件常见命令</h1>
+          <h1 class="post-title" itemprop="name headline">搬瓦工VPS端口相关</h1>
         
 
         <div class="post-meta">
@@ -363,8 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T00:00:00+08:00">
-                2017-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-11T20:51:34+08:00">
+                2017-12-11
               </time>
             
 
@@ -386,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/Shadowsocks/" itemprop="url" rel="index">
+                    <span itemprop="name">代理</span>
                   </a>
                 </span>
 
@@ -423,16 +423,21 @@
       
 
       
-        <blockquote>
-<p><code>echo</code>:表示显示此命令后的字符</p>
-<p><code>tiltle</code>:设置窗口的标题</p>
-<p><code>echo off</code>:表示在此语句后所有运行的命令都不显示命令行本身</p>
-<p><code>color</code>:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如<code>color 17</code>表示背景为蓝色，前景为白色。</p>
-<p><code>@</code>:与<code>echo off</code>相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。</p>
-<p><code>pause</code>:运行此句会暂停批处理的执行并在屏幕上显示<code>Press any key to continue…</code>的提示，等待用户按任意键后继续</p>
-<p><code>rem</code>:表示此命令后的字符为注释，不执行，只是给自己今后参考用的（相当于程序中的注释）或者使用 %注释的内容% 来注释单行内容</p>
-<p><code>%[1-9]</code>:表示参数，参数是指在运行批处理文件时在文件名后加的以空格（或者<code>Tab</code>）分隔的字符串</p>
-</blockquote>
+        <h3 id="SSH端口修改"><a href="#SSH端口修改" class="headerlink" title="SSH端口修改"></a>SSH端口修改</h3><ul>
+<li>输入下面命令：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>ssh<span class="regexp">/sshd_config</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果提示命令不存在，需要安装vim，以下命令二选一</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">install</span> -y vim</span><br><span class="line">//</span><br><span class="line">yum <span class="keyword">install</span> -y vim</span><br></pre></td></tr></table></figure>
+<p>打开配置文件后，找到<code>Port</code>字样，后面一般为5位数字，该数字即为SSH端口，可自定义为任意数字。</p>
+<ul>
+<li>保存后，重启一下SSH服务。</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/sshd restart</span></span><br></pre></td></tr></table></figure>
+<h3 id="检查SSH端口是否被封"><a href="#检查SSH端口是否被封" class="headerlink" title="检查SSH端口是否被封"></a>检查SSH端口是否被封</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet<span class="built_in"> IP </span>端口</span><br></pre></td></tr></table></figure>
+<p>1、如果SSH端口没有被封，大致会显示<code>SSH-2.0-OpenSSH</code>的字样；<br>2、如果端口被封了，那使用<code>telnet</code>命令，自然就连不上咯；<br>3、如果只是端口被封而连接不上，可通过上述修改SSH端口的方法，一般都能恢复如初；<br>4、如果是IP被封的话，那…那存钱吧！</p>
 
       
     </div>
@@ -466,11 +471,11 @@
         </li>
         <li class="post-copyright-link">
           <strong>本文标题：</strong>
-          <a href="http://www.ixuy.top/bat批处理文件常见命令/" title="bat批处理文件常见命令">bat批处理文件常见命令</a>
+          <a href="http://www.ixuy.top/搬瓦工VPS端口相关/" title="搬瓦工VPS端口相关">搬瓦工VPS端口相关</a>
         </li>
         <li class="post-copyright-link">
           <strong>本文链接：</strong>
-          <a href="http://www.ixuy.top/bat批处理文件常见命令/" title="bat批处理文件常见命令">http://www.ixuy.top/bat批处理文件常见命令/</a>
+          <a href="http://www.ixuy.top/搬瓦工VPS端口相关/" title="搬瓦工VPS端口相关">http://www.ixuy.top/搬瓦工VPS端口相关/</a>
         </li> 
         <li class="post-copyright-license">
           <strong>版权声明： </strong>
@@ -490,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/一键安装最新内核并开启-BBR-脚本/" rel="next" title="一键安装最新内核并开启 BBR 脚本">
-                <i class="fa fa-chevron-left"></i> 一键安装最新内核并开启 BBR 脚本
+              <a href="/Shadowsocks多用户配置方法/" rel="next" title="Shadowsocks多用户配置方法">
+                <i class="fa fa-chevron-left"></i> Shadowsocks多用户配置方法
               </a>
             
           </div>
@@ -499,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux-常用命令简单介绍-基础篇/" rel="prev" title="Linux 常用命令简单介绍(基础篇)">
-                Linux 常用命令简单介绍(基础篇) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -608,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH端口修改"><span class="nav-number">1.</span> <span class="nav-text">SSH端口修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查SSH端口是否被封"><span class="nav-number">2.</span> <span class="nav-text">检查SSH端口是否被封</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
