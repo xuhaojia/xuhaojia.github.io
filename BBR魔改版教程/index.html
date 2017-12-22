@@ -138,17 +138,21 @@
 
 
 
-<meta name="description" content="最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。 根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚至可以提升好几个数量级">
+<meta name="description" content="背景原版的BBR对于我们来说,速度不太稳定.通过修改BBR源码,调整参数,使其更强劲.为了优化国内与服务器之间的网络质量，loc的大佬专门魔改改进了下这个BBR，成为了新的BBR魔改版。  提醒部分商家的VPS可能会遇到换内核之后无法启动系统的情况，所以请运行脚本前一定要备份好重要数据！！  出处本文转自:Linux网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一键安装最新内核并开启 BBR 脚本">
-<meta property="og:url" content="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/index.html">
+<meta property="og:title" content="BBR魔改版教程">
+<meta property="og:url" content="http://www.ixuy.top/BBR魔改版教程/index.html">
 <meta property="og:site_name" content="ixuy&#39;s Blog">
-<meta property="og:description" content="最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。 根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚至可以提升好几个数量级。  本脚本适用环境 系统支持：CentOS 6+，Debian 7+，Ubu">
+<meta property="og:description" content="背景原版的BBR对于我们来说,速度不太稳定.通过修改BBR源码,调整参数,使其更强劲.为了优化国内与服务器之间的网络质量，loc的大佬专门魔改改进了下这个BBR，成为了新的BBR魔改版。  提醒部分商家的VPS可能会遇到换内核之后无法启动系统的情况，所以请运行脚本前一定要备份好重要数据！！  出处本文转自:Linux网络优化加速一键脚本   一键脚本 安装1wget -N --no-check-">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-11T14:17:27.000Z">
+<meta property="og:image" content="http://p07lo02hm.bkt.clouddn.com/BBR%E9%AD%94%E6%94%B9%E8%84%9A%E6%9C%AC.png">
+<meta property="og:image" content="http://p07lo02hm.bkt.clouddn.com/%E8%AF%AF%E5%88%A0.png">
+<meta property="og:image" content="http://p07lo02hm.bkt.clouddn.com/%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81.png">
+<meta property="og:updated_time" content="2017-12-22T14:03:10.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一键安装最新内核并开启 BBR 脚本">
-<meta name="twitter:description" content="最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。 根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚至可以提升好几个数量级。  本脚本适用环境 系统支持：CentOS 6+，Debian 7+，Ubu">
+<meta name="twitter:title" content="BBR魔改版教程">
+<meta name="twitter:description" content="背景原版的BBR对于我们来说,速度不太稳定.通过修改BBR源码,调整参数,使其更强劲.为了优化国内与服务器之间的网络质量，loc的大佬专门魔改改进了下这个BBR，成为了新的BBR魔改版。  提醒部分商家的VPS可能会遇到换内核之后无法启动系统的情况，所以请运行脚本前一定要备份好重要数据！！  出处本文转自:Linux网络优化加速一键脚本   一键脚本 安装1wget -N --no-check-">
+<meta name="twitter:image" content="http://p07lo02hm.bkt.clouddn.com/BBR%E9%AD%94%E6%94%B9%E8%84%9A%E6%9C%AC.png">
 
 
 
@@ -178,13 +182,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/"/>
+  <link rel="canonical" href="http://www.ixuy.top/BBR魔改版教程/"/>
 
 
 
 
 
-  <title>一键安装最新内核并开启 BBR 脚本 | ixuy's Blog</title>
+  <title>BBR魔改版教程 | ixuy's Blog</title>
   
 
 
@@ -334,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/">
+    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/BBR魔改版教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixuy">
@@ -351,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一键安装最新内核并开启 BBR 脚本</h1>
+          <h1 class="post-title" itemprop="name headline">BBR魔改版教程</h1>
         
 
         <div class="post-meta">
@@ -363,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T00:00:00+08:00">
-                2017-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T21:18:12+08:00">
+                2017-12-22
               </time>
             
 
@@ -423,34 +427,29 @@
       
 
       
-        <blockquote>
-<p>最近，Google 开源了其<code>TCP BBR</code>拥塞控制算法，并提交到了<code>Linux</code>内核，从 4.9 开始，<code>Linux</code>内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。</p>
-<p>根据实地测试，在部署了最新版内核并开启了<code>TCP BBR</code>的机器上，网速甚至可以提升好几个数量级。</p>
-</blockquote>
-<h1 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h1><ul>
-<li>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+</li>
-<li>虚拟技术：OpenVZ 以外的，比如 KVM、Xen、VMware 等</li>
-<li>内存要求：≥128M</li>
+        <ul>
+<li><p>背景<br>原版的BBR对于我们来说,速度不太稳定.<br>通过修改BBR源码,调整参数,使其更强劲.<br>为了优化国内与服务器之间的网络质量，loc的大佬专门魔改改进了下这个BBR，成为了新的BBR魔改版。</p>
+</li>
+<li><p>提醒<br>部分商家的VPS可能会遇到换内核之后无法启动系统的情况，所以请运行脚本前一定要备份好重要数据！！</p>
+</li>
+<li><p>出处<br>本文转自:<a href="https://www.94ish.me/1635.html" target="_blank" rel="noopener">Linux网络优化加速一键脚本</a></p>
+</li>
 </ul>
-<h1 id="关于本脚本"><a href="#关于本脚本" class="headerlink" title="关于本脚本"></a>关于本脚本</h1><ul>
-<li>1、<strong>本文出处</strong>:<a href="https://teddysun.com/489.html" target="_blank" rel="noopener">秋水逸冰</a></li>
-<li>2、本脚本已在<code>Vultr</code>上的<code>VPS</code>全部测试通过。</li>
-<li>3、当脚本检测到<code>VPS</code>的虚拟方式为<code>OpenVZ</code>时，会提示错误，并自动退出安装。</li>
-<li>4、脚本运行完重启发现开不了机的，打开<code>VPS</code>后台控制面板的<code>VNC</code>, 开机卡在<code>grub</code>引导, 手动选择内核即可。</li>
-<li>4、由于是使用最新版系统内核，最好请勿在生产环境安装，以免产生不可预测之后果。</li>
-</ul>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用<code>root</code>用户登录，运行以下命令：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="keyword">N</span> --<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//github.<span class="keyword">com</span>/teddysun/across/raw/master/bbr.<span class="keyword">sh</span> &amp;&amp; chmod +<span class="keyword">x</span> bbr.<span class="keyword">sh</span> &amp;&amp; bash bbr.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
-<p>安装完成后，脚本会提示需要重启<code>VPS</code>，输入<code>y</code>并回车后重启。<br>重启完成后，进入<code>VPS</code>，验证一下是否成功安装最新内核并开启<code>TCP BBR</code>，输入以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看内核版本，含有 4.14.5 就表示 OK 了</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_available_congestion_control = bbr cubic reno</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.ipv4.tcp_congestion_control = bbr</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">sysctl net.core.default_qdisc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值一般为：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> net.core.default_qdisc = fq</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ————————————</span></span><br><span class="line">lsmod | grep bbr</span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回值有 tcp_bbr 模块即说明bbr已启动。</span></span><br></pre></td></tr></table></figure>
-<p>注意：<strong>并不是所有的<code>VPS</code>都会有此返回值，若没有也属正常</strong>。</p>
-<h2 id="内核升级方法"><a href="#内核升级方法" class="headerlink" title="内核升级方法"></a>内核升级方法</h2><p>如果是<code>CentOS</code>系统，执行如下命令即可升级内核：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="attribute">--enablerepo</span>=elrepo-kernel -y install kernel-ml kernel-ml-devel</span><br></pre></td></tr></table></figure>
-<p><code>CentOS 6</code>的话，执行命令：</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="symbol">'s</span>/^<span class="keyword">default</span>=.*/<span class="keyword">default</span>=<span class="number">0</span>/g' /boot/grub/grub.conf</span><br></pre></td></tr></table></figure>
-<p><code>CentOS 7</code>的话，执行命令：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-<span class="keyword">set</span>-<span class="keyword">default</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h2><center><br><img src="http://p07lo02hm.bkt.clouddn.com/BBR%E9%AD%94%E6%94%B9%E8%84%9A%E6%9C%AC.png" alt="一键脚本"><br><br><em> 安装<br><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="keyword">N</span> --<span class="keyword">no</span>-check-certificate <span class="string">"https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.<span class="keyword">sh</span> &amp;&amp; ./tcp.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure><br><br>## 脚本说明<br>&gt; 支持系统<br>&gt; Centos 6+ / Debian 7+ / Ubuntu 14+<br>&gt; BBR魔改版不支持Debian 8
 
+</em> 如果在删除内核环节出现这样一张图<br><center><br><img src="http://p07lo02hm.bkt.clouddn.com/%E8%AF%AF%E5%88%A0.png" alt=""><br></center>
+
+<blockquote>
+<p><strong>注意选择<code>NO</code></strong>    </p>
+</blockquote>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>在设置脚本时，设置完毕后都会有选择<code>y/n</code>重启的环节，但选择重启后，都会提示“BBR魔改版”无法启动，这时需要<code>reboot</code>才能正常；    </li>
+<li>可通过<code>./tcp.sh</code>命令唤出脚本；</li>
+</ul>
+<h2 id="查看魔改BBR状态"><a href="#查看魔改BBR状态" class="headerlink" title="查看魔改BBR状态"></a>查看魔改BBR状态</h2><pre><code>sysctl net.ipv4.tcp_available_congestion_control
+</code></pre><p>如果看到有<code>tsunami</code>就表示开启成功！</p>
+<center><br><img src="http://p07lo02hm.bkt.clouddn.com/%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81.png" alt=""><br></center>
+</center>
       
     </div>
     <div>
@@ -483,11 +482,11 @@
         </li>
         <li class="post-copyright-link">
           <strong>本文标题：</strong>
-          <a href="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/" title="一键安装最新内核并开启 BBR 脚本">一键安装最新内核并开启 BBR 脚本</a>
+          <a href="http://www.ixuy.top/BBR魔改版教程/" title="BBR魔改版教程">BBR魔改版教程</a>
         </li>
         <li class="post-copyright-link">
           <strong>本文链接：</strong>
-          <a href="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/" title="一键安装最新内核并开启 BBR 脚本">http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/</a>
+          <a href="http://www.ixuy.top/BBR魔改版教程/" title="BBR魔改版教程">http://www.ixuy.top/BBR魔改版教程/</a>
         </li> 
         <li class="post-copyright-license">
           <strong>版权声明： </strong>
@@ -507,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/171124/" rel="next" title="建站初衷">
-                <i class="fa fa-chevron-left"></i> 建站初衷
+              <a href="/搬瓦工VPS端口相关/" rel="next" title="搬瓦工VPS端口相关">
+                <i class="fa fa-chevron-left"></i> 搬瓦工VPS端口相关
               </a>
             
           </div>
@@ -516,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/bat批处理文件常见命令/" rel="prev" title="bat批处理文件常见命令">
-                bat批处理文件常见命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -644,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本脚本适用环境"><span class="nav-number">1.</span> <span class="nav-text">本脚本适用环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于本脚本"><span class="nav-number">2.</span> <span class="nav-text">关于本脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">2.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核升级方法"><span class="nav-number">2.2.</span> <span class="nav-text">内核升级方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一键脚本"><span class="nav-number">1.</span> <span class="nav-text">一键脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看魔改BBR状态"><span class="nav-number">3.</span> <span class="nav-text">查看魔改BBR状态</span></a></li></ol></div>
             
 
           </div>

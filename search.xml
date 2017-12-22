@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[BBR魔改版教程]]></title>
+      <url>/BBR%E9%AD%94%E6%94%B9%E7%89%88%E6%95%99%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>背景<br>原版的BBR对于我们来说,速度不太稳定.<br>通过修改BBR源码,调整参数,使其更强劲.<br>为了优化国内与服务器之间的网络质量，loc的大佬专门魔改改进了下这个BBR，成为了新的BBR魔改版。</p>
+</li>
+<li><p>提醒<br>部分商家的VPS可能会遇到换内核之后无法启动系统的情况，所以请运行脚本前一定要备份好重要数据！！</p>
+</li>
+<li><p>出处<br>本文转自:<a href="https://www.94ish.me/1635.html" target="_blank" rel="noopener">Linux网络优化加速一键脚本</a></p>
+</li>
+</ul>
+<h2 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h2><center><br><img src="http://p07lo02hm.bkt.clouddn.com/BBR%E9%AD%94%E6%94%B9%E8%84%9A%E6%9C%AC.png" alt="一键脚本"><br><br><em> 安装<br><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="keyword">N</span> --<span class="keyword">no</span>-check-certificate <span class="string">"https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.<span class="keyword">sh</span> &amp;&amp; ./tcp.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure><br><br>## 脚本说明<br>&gt; 支持系统<br>&gt; Centos 6+ / Debian 7+ / Ubuntu 14+<br>&gt; BBR魔改版不支持Debian 8
+
+</em> 如果在删除内核环节出现这样一张图<br><center><br><img src="http://p07lo02hm.bkt.clouddn.com/%E8%AF%AF%E5%88%A0.png" alt=""><br></center>
+
+<blockquote>
+<p><strong>注意选择<code>NO</code></strong>    </p>
+</blockquote>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>在设置脚本时，设置完毕后都会有选择<code>y/n</code>重启的环节，但选择重启后，都会提示“BBR魔改版”无法启动，这时需要<code>reboot</code>才能正常；    </li>
+<li>可通过<code>./tcp.sh</code>命令唤出脚本；</li>
+</ul>
+<h2 id="查看魔改BBR状态"><a href="#查看魔改BBR状态" class="headerlink" title="查看魔改BBR状态"></a>查看魔改BBR状态</h2><pre><code>sysctl net.ipv4.tcp_available_congestion_control
+</code></pre><p>如果看到有<code>tsunami</code>就表示开启成功！</p>
+<center><br><img src="http://p07lo02hm.bkt.clouddn.com/%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81.png" alt=""><br></center>
+</center>]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[搬瓦工VPS端口相关]]></title>
       <url>/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E7%AB%AF%E5%8F%A3%E7%9B%B8%E5%85%B3/</url>
       <content type="html"><![CDATA[<h3 id="SSH端口修改"><a href="#SSH端口修改" class="headerlink" title="SSH端口修改"></a>SSH端口修改</h3><ul>
