@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[Mac使用终端命令制作U盘启动]]></title>
+      <url>/Mac%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E5%88%B6%E4%BD%9CU%E7%9B%98%E5%90%AF%E5%8A%A8/</url>
+      <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+<ul>
+<li>准备一个大于8G的U盘    </li>
+<li>下载系统镜像文件    </li>
+</ul>
+</blockquote>
+<ul>
+<li>首先把你下载好的系统镜像打开,拖到应用程序里,一定要确保你的应用程序中有系统安装程序</li>
+<li>以系统名为<code>macOS High Sierra</code>为例,安装程序名为<code>macOS High Sierra</code>,U盘名为<code>InstallOS</code> ,名字很重要,要确保下方命令和U盘名字一致    </li>
+<li>打开终端,输入以下命令        <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="string">/Applications/macOS</span>\ High\ Sierra.app/Contents/Resources/createinstallmedia <span class="params">--volume</span> <span class="string">/Volumes/InstallOS</span> <span class="params">--applicationpath</span> <span class="string">/Applications/macOS</span>\ High\ Sierra.app <span class="params">--nointeraction</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://p07lo02hm.bkt.clouddn.com/U%E7%9B%98%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4.png" alt="U盘命令"></p>
+<ul>
+<li>详解一下这段命令,红线处为系统安装程序的名字,(请不要忽略空格,这很重要,中间有空开出前面就要加空格),如:安装程序名字是:Install OS X Yosemite,命令红线处要这么写Install\ OS\ X\ Yosemite.app,蓝线是你U盘的名字,格式化的时候起的(不要起中文)</li>
+<li>回车后，系统会提示你输入管理员密码，接下来就是等待系统开始制作启动盘了。这时，命令执行中你会陆续看到类似以下的信息：</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Erasing Disk: <span class="number">0</span>%… <span class="number">10</span>%… <span class="number">20</span>%… <span class="number">30</span>%…<span class="number">100</span>%… </span><br><span class="line">Copying installer files to disk… </span><br><span class="line"><span class="keyword">Copy</span><span class="bash"> complete. </span></span><br><span class="line"><span class="bash">Making disk bootable… </span></span><br><span class="line"><span class="bash">Copying boot files… </span></span><br><span class="line"><span class="bash">Copy complete. </span></span><br><span class="line"><span class="bash">Done.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>当你看到最后有<code>Copy complete</code>和<code>Done</code>字样出现就是表示启动盘已经制作完成了！(命令执行过程大概5分钟左右,期间不要对终端做任何操作,耐心等待就好)</li>
+<li>然后重启你的 Mac，然后一直按住<code>「option」(alt)</code>键,选U盘进入就可以装系统了</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Mbp </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MacBook更新后Hexo不能正常发布文章]]></title>
       <url>/MacBook%E6%9B%B4%E6%96%B0%E5%90%8EHexo%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</url>
       <content type="html"><![CDATA[<ul>
@@ -392,30 +428,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[bat批处理文件常见命令]]></title>
-      <url>/bat%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p><code>echo</code>:表示显示此命令后的字符</p>
-<p><code>tiltle</code>:设置窗口的标题</p>
-<p><code>echo off</code>:表示在此语句后所有运行的命令都不显示命令行本身</p>
-<p><code>color</code>:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如<code>color 17</code>表示背景为蓝色，前景为白色。</p>
-<p><code>@</code>:与<code>echo off</code>相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。</p>
-<p><code>pause</code>:运行此句会暂停批处理的执行并在屏幕上显示<code>Press any key to continue…</code>的提示，等待用户按任意键后继续</p>
-<p><code>rem</code>:表示此命令后的字符为注释，不执行，只是给自己今后参考用的（相当于程序中的注释）或者使用 %注释的内容% 来注释单行内容</p>
-<p><code>%[1-9]</code>:表示参数，参数是指在运行批处理文件时在文件名后加的以空格（或者<code>Tab</code>）分隔的字符串</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 其他 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[一键安装最新内核并开启 BBR 脚本]]></title>
       <url>/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E5%86%85%E6%A0%B8%E5%B9%B6%E5%BC%80%E5%90%AF-BBR-%E8%84%9A%E6%9C%AC/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -450,6 +462,30 @@
         <categories>
             
             <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[bat批处理文件常见命令]]></title>
+      <url>/bat%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>echo</code>:表示显示此命令后的字符</p>
+<p><code>tiltle</code>:设置窗口的标题</p>
+<p><code>echo off</code>:表示在此语句后所有运行的命令都不显示命令行本身</p>
+<p><code>color</code>:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如<code>color 17</code>表示背景为蓝色，前景为白色。</p>
+<p><code>@</code>:与<code>echo off</code>相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。</p>
+<p><code>pause</code>:运行此句会暂停批处理的执行并在屏幕上显示<code>Press any key to continue…</code>的提示，等待用户按任意键后继续</p>
+<p><code>rem</code>:表示此命令后的字符为注释，不执行，只是给自己今后参考用的（相当于程序中的注释）或者使用 %注释的内容% 来注释单行内容</p>
+<p><code>%[1-9]</code>:表示参数，参数是指在运行批处理文件时在文件名后加的以空格（或者<code>Tab</code>）分隔的字符串</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 其他 </category>
             
         </categories>
         
