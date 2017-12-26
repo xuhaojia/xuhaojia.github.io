@@ -3,6 +3,109 @@
   
     
     <entry>
+      <title><![CDATA[安装并配置simple-obfs服务端]]></title>
+      <url>/%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEsimple-obfs%E6%9C%8D%E5%8A%A1%E7%AB%AF/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文的主要内容是，在已经安装完 <a href="">Shadowsocks-libev</a> 服务端的情况下，如何手动安装并配置 simple-obfs，以及在此过程中的排错。</p>
+<p>转自:<a href="https://teddysun.com/511.html" target="_blank" rel="noopener">秋水逸冰</a></p>
+</blockquote>
+<ul>
+<li><strong>注意：脚本仅支持在 autoconf 版本大于或等于 2.67 的系统里安装（例如不支持 CentOS 6）</strong></li>
+</ul>
+<blockquote>
+<p>手动安装和配置 simple-obfs 服务端</p>
+</blockquote>
+<ul>
+<li>以 CentOS 7 的操作为范例<br>在已经安装<a href="">Shadowsocks-libev</a>的前提下，还需要安装<code>simple-obfs</code>服务端所需的依赖包。<br>有可能还需要安装一下 git 命令。</li>
+</ul>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Debian / Ubuntu</span></span><br><span class="line">apt-<span class="keyword">get</span> install -y git</span><br><span class="line"></span><br><span class="line"><span class="meta"># CentOS / Fedora / RHEL</span></span><br><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载和安装<code>simple-obfs</code>  </li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/opt</span></span><br><span class="line">git clone https:<span class="string">//github.com/shadowsocks/simple-obfs.git</span></span><br><span class="line"><span class="keyword">cd</span> simple-obfs</span><br><span class="line">git submodule update <span class="params">--init</span> <span class="params">--recursive</span></span><br><span class="line"><span class="string">./autogen.sh</span></span><br><span class="line"><span class="string">./configure</span> <span class="params">--disable-documentation</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p><strong>需要特别注意的是，autogen.sh 脚本的配置限制了 <code>autoconf</code> 的版本不能低于 2.67。</strong></p>
+<p>如何查看默认 autoconf 的版本号？</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoconf <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
+<p><strong>CentOS 7 的 autoconf 版本为 2.69，符合条件。</strong></p>
+<blockquote>
+<p>重新配置文件    </p>
+</blockquote>
+<ul>
+<li>重新配置 Shadowsocks-libev 的配置文件 /etc/shadowsocks-libev/config.json</li>
+<li>添加如下一行</li>
+</ul>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"plugin"</span>:<span class="string">"/usr/local/bin/obfs-server --obfs http"</span></span><br></pre></td></tr></table></figure>
+<p><strong>特别注意：请认真参考以下范例，<code>method</code>那行最后不要缺少逗号，不然启动会报错。</strong></p>
+<ul>
+<li>范例如下：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:your_server_port,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"your_password"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"your_encryption_method"</span>,</span><br><span class="line">    <span class="attr">"plugin"</span>:<span class="string">"/usr/local/bin/obfs-server --obfs http"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后重新启动 Shadowsocks-libev 即可。</li>
+</ul>
+<blockquote>
+<p>确认 ss-server 和 obfs-server 进程已经正常启动。</p>
+</blockquote>
+<p>命令如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef | <span class="keyword">grep</span> -v <span class="keyword">grep</span> | <span class="keyword">grep</span> <span class="string">"server"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果参考：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>ss-server -u -c <span class="regexp">/etc/</span>shadowsocks-libev<span class="regexp">/config.json -f /</span>var<span class="regexp">/run/</span>shadowsocks-libev.pid</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>obfs-server --obfs http</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CentOS下shadowsocks-libev一键安装脚本]]></title>
+      <url>/CentOS%E4%B8%8Bshadowsocks-libev%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文转自:<a href="https://teddysun.com/357.html" target="_blank" rel="noopener">秋水逸冰</a></p>
+</blockquote>
+<h3 id="为什么使用Shadowsock-libev服务端？"><a href="#为什么使用Shadowsock-libev服务端？" class="headerlink" title="为什么使用Shadowsock-libev服务端？"></a>为什么使用<a href="https://github.com/shadowsocks/shadowsocks-libev" target="_blank" rel="noopener">Shadowsock-libev</a>服务端？</h3><ul>
+<li>相比原版<a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="noopener">Shadowsocks</a>，libev(c#)版本提供了更多的特性支持；而关于<a href="https://github.com/shadowsocksr/shadowsocksr" target="_blank" rel="noopener">ShadowsocksR</a>(Python)，Shadowsocks-libev率先支持<strong><a href="https://en.m.wikipedia.org/wiki/Authenticated_encryption" target="_blank" rel="noopener">AEAD</a> Cipher</strong>，并向ShadowsocksR学习引进了<strong><a href="https://github.com/shadowsocksr/obfsplugin" target="_blank" rel="noopener">Obfs</a></strong><a href="https://github.com/shadowsocks/simple-obfs" target="_blank" rel="noopener">(Simple-Obfs)</a>，且提供稳定的周期性更新；长远来看，ShadowsocksR更倾向于向none加密化和Obfs化发展，而Shadowsocks-libev则倾向于向强化Cipher的方向发展，两者有不同的侧重点。简单来说，ShadowsocksR更侧重消除特征以更好穿过GFW，而Shadowsocks-libev则追求更高的安全性，综合起来并无优劣之分；</li>
+<li>如何安装和配置simple-obfs服务端，<a href="">点击查看</a>。</li>
+</ul>
+<h3 id="本脚本适用环境："><a href="#本脚本适用环境：" class="headerlink" title="本脚本适用环境："></a>本脚本适用环境：</h3><ul>
+<li>系统支持：CentOS    </li>
+<li>内存要求：≥128M    </li>
+<li>日期：2017 年 09 月 16 日</li>
+</ul>
+<h3 id="Shadowsocks-for-Windows-客户端下载："><a href="#Shadowsocks-for-Windows-客户端下载：" class="headerlink" title="Shadowsocks for Windows 客户端下载："></a>Shadowsocks for Windows 客户端下载：</h3><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-windows/releases</a></p>
+<h3 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h3><ul>
+<li>使用root用户登录，运行以下命令：    </li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --<span class="keyword">no</span>-check-certificate -O shadowsocks-libev.<span class="keyword">sh</span> http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/teddysun/shadowsocks_install/master/shadowsocks-libev.<span class="keyword">sh</span>	</span><br><span class="line">chmod +<span class="keyword">x</span> shadowsocks-libev.<span class="keyword">sh</span></span><br><span class="line">./shadowsocks-libev.<span class="keyword">sh</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks-libev.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后，脚本提示如下：</li>
+</ul>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Congratulations, Shadowsocks-libev server install completed!</span><br><span class="line">Your Server IP        :your_server_ip</span><br><span class="line">Your Server Port      :your_server_port</span><br><span class="line">Your Password         :your_password</span><br><span class="line">Your Encryption <span class="function"><span class="keyword">Method</span>:</span>your_encryption_method</span><br><span class="line"></span><br><span class="line">Welcome <span class="keyword">to</span> visit:https:<span class="comment">//teddysun.com/357.html</span></span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+<h3 id="卸载方法："><a href="#卸载方法：" class="headerlink" title="卸载方法："></a>卸载方法：</h3><ul>
+<li>使用 root 用户登录，运行以下命令：</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks-libev<span class="selector-class">.sh</span> uninstall</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后即已后台启动 Shadowsocks-libev ，运行：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/shadowsocks status</span></span><br></pre></td></tr></table></figure>
+<p>可以查看进程是否启动。<br>本脚本安装完成后，会将 Shadowsocks-libev 加入开机自启动。</p>
+<h3 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a>使用命令：</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">启动：<span class="meta-keyword">/etc/</span>init.d/shadowsocks start</span><br><span class="line">停止：<span class="meta-keyword">/etc/</span>init.d/shadowsocks stop</span><br><span class="line">重启：<span class="meta-keyword">/etc/</span>init.d/shadowsocks restart</span><br><span class="line">查看状态：<span class="meta-keyword">/etc/</span>init.d/shadowsocks status</span><br></pre></td></tr></table></figure>
+<h3 id="默认配置文件"><a href="#默认配置文件" class="headerlink" title="默认配置文件"></a>默认配置文件</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/shadowsocks-libev/<span class="built_in">config</span>.json</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac使用终端命令制作U盘启动]]></title>
       <url>/Mac%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E5%88%B6%E4%BD%9CU%E7%9B%98%E5%90%AF%E5%8A%A8/</url>
       <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
@@ -428,6 +531,30 @@
     </entry>
     
     <entry>
+      <title><![CDATA[bat批处理文件常见命令]]></title>
+      <url>/bat%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>echo</code>:表示显示此命令后的字符</p>
+<p><code>tiltle</code>:设置窗口的标题</p>
+<p><code>echo off</code>:表示在此语句后所有运行的命令都不显示命令行本身</p>
+<p><code>color</code>:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如<code>color 17</code>表示背景为蓝色，前景为白色。</p>
+<p><code>@</code>:与<code>echo off</code>相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。</p>
+<p><code>pause</code>:运行此句会暂停批处理的执行并在屏幕上显示<code>Press any key to continue…</code>的提示，等待用户按任意键后继续</p>
+<p><code>rem</code>:表示此命令后的字符为注释，不执行，只是给自己今后参考用的（相当于程序中的注释）或者使用 %注释的内容% 来注释单行内容</p>
+<p><code>%[1-9]</code>:表示参数，参数是指在运行批处理文件时在文件名后加的以空格（或者<code>Tab</code>）分隔的字符串</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 其他 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[一键安装最新内核并开启 BBR 脚本]]></title>
       <url>/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E5%86%85%E6%A0%B8%E5%B9%B6%E5%BC%80%E5%90%AF-BBR-%E8%84%9A%E6%9C%AC/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -462,30 +589,6 @@
         <categories>
             
             <category> 代理 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[bat批处理文件常见命令]]></title>
-      <url>/bat%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p><code>echo</code>:表示显示此命令后的字符</p>
-<p><code>tiltle</code>:设置窗口的标题</p>
-<p><code>echo off</code>:表示在此语句后所有运行的命令都不显示命令行本身</p>
-<p><code>color</code>:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如<code>color 17</code>表示背景为蓝色，前景为白色。</p>
-<p><code>@</code>:与<code>echo off</code>相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。</p>
-<p><code>pause</code>:运行此句会暂停批处理的执行并在屏幕上显示<code>Press any key to continue…</code>的提示，等待用户按任意键后继续</p>
-<p><code>rem</code>:表示此命令后的字符为注释，不执行，只是给自己今后参考用的（相当于程序中的注释）或者使用 %注释的内容% 来注释单行内容</p>
-<p><code>%[1-9]</code>:表示参数，参数是指在运行批处理文件时在文件名后加的以空格（或者<code>Tab</code>）分隔的字符串</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 其他 </category>
             
         </categories>
         

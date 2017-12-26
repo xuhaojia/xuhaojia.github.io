@@ -138,13 +138,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ixuy&#39;s Blog">
-<meta property="og:url" content="http://www.ixuy.top/page/2/index.html">
+<meta name="description" content="本文的主要内容是，在已经安装完 Shadowsocks-libev 服务端的情况下，如何手动安装并配置 simple-obfs，以及在此过程中的排错。 转自:秋水逸冰   注意：脚本仅支持在 autoconf 版本大于或等于 2.67 的系统里安装（例如不支持 CentOS 6）   手动安装和配置 simple-ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装并配置simple-obfs服务端">
+<meta property="og:url" content="http://www.ixuy.top/安装并配置simple-obfs服务端/index.html">
 <meta property="og:site_name" content="ixuy&#39;s Blog">
+<meta property="og:description" content="本文的主要内容是，在已经安装完 Shadowsocks-libev 服务端的情况下，如何手动安装并配置 simple-obfs，以及在此过程中的排错。 转自:秋水逸冰   注意：脚本仅支持在 autoconf 版本大于或等于 2.67 的系统里安装（例如不支持 CentOS 6）   手动安装和配置 simple-obfs 服务端   以 CentOS 7 的操作为范例在已经安装Shadowso">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-26T13:42:16.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ixuy&#39;s Blog">
+<meta name="twitter:title" content="安装并配置simple-obfs服务端">
+<meta name="twitter:description" content="本文的主要内容是，在已经安装完 Shadowsocks-libev 服务端的情况下，如何手动安装并配置 simple-obfs，以及在此过程中的排错。 转自:秋水逸冰   注意：脚本仅支持在 autoconf 版本大于或等于 2.67 的系统里安装（例如不支持 CentOS 6）   手动安装和配置 simple-obfs 服务端   以 CentOS 7 的操作为范例在已经安装Shadowso">
 
 
 
@@ -174,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ixuy.top/page/2/"/>
+  <link rel="canonical" href="http://www.ixuy.top/安装并配置simple-obfs服务端/"/>
 
 
 
 
 
-  <title>ixuy's Blog</title>
+  <title>安装并配置simple-obfs服务端 | ixuy's Blog</title>
   
 
 
@@ -199,8 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,9 +319,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -331,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/Mac-OS配置SSH密钥登入CentOS/">
+    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/安装并配置simple-obfs服务端/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixuy">
@@ -348,9 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Mac-OS配置SSH密钥登入CentOS/" itemprop="url">Mac OS配置SSH密钥登入CentOS</a></h1>
+          <h1 class="post-title" itemprop="name headline">安装并配置simple-obfs服务端</h1>
         
 
         <div class="post-meta">
@@ -362,491 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T00:00:00+08:00">
-                2017-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Macbook/" itemprop="url" rel="index">
-                    <span itemprop="name">Mbp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-在连接SSH服务器或者使用scp命令的时候都会感到诸多不便，因为免不了 ssh root@12.12.12.12 然后输入密码。配置密钥登录可以简化整个认证过程避免输入密码，甚至是这样：
-
-1ssh my
-一个回车便能直接登入。
-配置和添加
-产生密钥和公钥
-在本地运行：
-
-
-1ssh-keygen
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Mac-OS配置SSH密钥登入CentOS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-
-     <div>    
-      
-  
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/Linux-常用命令简单介绍-基础篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixuy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ixuy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Linux-常用命令简单介绍-基础篇/" itemprop="url">Linux 常用命令简单介绍(基础篇)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T00:00:00+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Essence/" itemprop="url" rel="index">
-                    <span itemprop="name">精华</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-
-包管理器apt-get Debian/Ubuntu系统包管理器apt-get 是Debian/Ubuntu系统中 一个用于快速下载/安装的简单命令行管理工具！
-参数介绍：1234567891011121314151617181920212223# 命令:update - 检索 新的包列表upgr
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Linux-常用命令简单介绍-基础篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-
-     <div>    
-      
-  
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/bat批处理文件常见命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixuy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ixuy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/bat批处理文件常见命令/" itemprop="url">bat批处理文件常见命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T00:00:00+08:00">
-                2017-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-echo:表示显示此命令后的字符
-tiltle:设置窗口的标题
-echo off:表示在此语句后所有运行的命令都不显示命令行本身
-color:设置窗体的颜色，颜色属性由两个十六进制数字组成，第一个对应背景，第二个对应前景。比如color 17表示背景为蓝色，前景为白色。
-@:与echo off相象
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/bat批处理文件常见命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-
-     <div>    
-      
-  
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/一键安装最新内核并开启-BBR-脚本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixuy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ixuy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/一键安装最新内核并开启-BBR-脚本/" itemprop="url">一键安装最新内核并开启 BBR 脚本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T00:00:00+08:00">
-                2017-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T21:15:13+08:00">
+                2017-12-26
               </time>
             
 
@@ -905,23 +423,60 @@ color:设置窗体的颜色，颜色属性由两个十六进制数字组成，�
       
 
       
-        
-          
-          
-最近，Google 开源了其TCP BBR拥塞控制算法，并提交到了Linux内核，从 4.9 开始，Linux内核已经用上了该算法。根据以往的传统，Google 总是先在自家的生产环境上线运用后，才会将代码开源，此次也不例外。
-根据实地测试，在部署了最新版内核并开启了TCP BBR的机器上，网速甚
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/一键安装最新内核并开启-BBR-脚本/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <blockquote>
+<p>本文的主要内容是，在已经安装完 <a href="">Shadowsocks-libev</a> 服务端的情况下，如何手动安装并配置 simple-obfs，以及在此过程中的排错。</p>
+<p>转自:<a href="https://teddysun.com/511.html" target="_blank" rel="noopener">秋水逸冰</a></p>
+</blockquote>
+<ul>
+<li><strong>注意：脚本仅支持在 autoconf 版本大于或等于 2.67 的系统里安装（例如不支持 CentOS 6）</strong></li>
+</ul>
+<blockquote>
+<p>手动安装和配置 simple-obfs 服务端</p>
+</blockquote>
+<ul>
+<li>以 CentOS 7 的操作为范例<br>在已经安装<a href="">Shadowsocks-libev</a>的前提下，还需要安装<code>simple-obfs</code>服务端所需的依赖包。<br>有可能还需要安装一下 git 命令。</li>
+</ul>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Debian / Ubuntu</span></span><br><span class="line">apt-<span class="keyword">get</span> install -y git</span><br><span class="line"></span><br><span class="line"><span class="meta"># CentOS / Fedora / RHEL</span></span><br><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载和安装<code>simple-obfs</code>  </li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/opt</span></span><br><span class="line">git clone https:<span class="string">//github.com/shadowsocks/simple-obfs.git</span></span><br><span class="line"><span class="keyword">cd</span> simple-obfs</span><br><span class="line">git submodule update <span class="params">--init</span> <span class="params">--recursive</span></span><br><span class="line"><span class="string">./autogen.sh</span></span><br><span class="line"><span class="string">./configure</span> <span class="params">--disable-documentation</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p><strong>需要特别注意的是，autogen.sh 脚本的配置限制了 <code>autoconf</code> 的版本不能低于 2.67。</strong></p>
+<p>如何查看默认 autoconf 的版本号？</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoconf <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
+<p><strong>CentOS 7 的 autoconf 版本为 2.69，符合条件。</strong></p>
+<blockquote>
+<p>重新配置文件    </p>
+</blockquote>
+<ul>
+<li>重新配置 Shadowsocks-libev 的配置文件 /etc/shadowsocks-libev/config.json</li>
+<li>添加如下一行</li>
+</ul>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"plugin"</span>:<span class="string">"/usr/local/bin/obfs-server --obfs http"</span></span><br></pre></td></tr></table></figure>
+<p><strong>特别注意：请认真参考以下范例，<code>method</code>那行最后不要缺少逗号，不然启动会报错。</strong></p>
+<ul>
+<li>范例如下：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:your_server_port,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"your_password"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"your_encryption_method"</span>,</span><br><span class="line">    <span class="attr">"plugin"</span>:<span class="string">"/usr/local/bin/obfs-server --obfs http"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后重新启动 Shadowsocks-libev 即可。</li>
+</ul>
+<blockquote>
+<p>确认 ss-server 和 obfs-server 进程已经正常启动。</p>
+</blockquote>
+<p>命令如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> -ef | <span class="keyword">grep</span> -v <span class="keyword">grep</span> | <span class="keyword">grep</span> <span class="string">"server"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果参考：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>ss-server -u -c <span class="regexp">/etc/</span>shadowsocks-libev<span class="regexp">/config.json -f /</span>var<span class="regexp">/run/</span>shadowsocks-libev.pid</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>obfs-server --obfs http</span><br></pre></td></tr></table></figure>
       
     </div>
     <div>
+      
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
       
     </div>
     
@@ -938,175 +493,52 @@ color:设置窗体的颜色，颜色属性由两个十六进制数字组成，�
 
      <div>    
       
-  
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
+      <ul class="post-copyright">
+         <li class="post-copyright-link">
+          <strong>本文作者：</strong>
+          <a href="/" title="欢迎访问 ixuy 的个人博客">ixuy</a>
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文标题：</strong>
+          <a href="http://www.ixuy.top/安装并配置simple-obfs服务端/" title="安装并配置simple-obfs服务端">安装并配置simple-obfs服务端</a>
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="http://www.ixuy.top/安装并配置simple-obfs服务端/" title="安装并配置simple-obfs服务端">http://www.ixuy.top/安装并配置simple-obfs服务端/</a>
+        </li> 
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          转载请注明出处！
+        </li>
+      </ul>
+     </div>
     
+  
       
 
-  
+      
+      
+      
 
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ixuy.top/171124/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixuy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ixuy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/171124/" itemprop="url">建站初衷</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T00:00:00+08:00">
-                2017-11-24
-              </time>
+              <a href="/CentOS下shadowsocks-libev一键安装脚本/" rel="next" title="CentOS下shadowsocks-libev一键安装脚本">
+                <i class="fa fa-chevron-left"></i> CentOS下shadowsocks-libev一键安装脚本
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          前 言
-这篇文章其实在2天前就应该被发表出来的，但由于第一次使用Hexo,对于连各种命令都看不懂的我，只想在发表文章前，更进一步的把Hexo理解透彻（直白一点就是先搞懂）！
-
-建站初衷
-平时使用Blog都是用于转载对自己有用的帖子，起到收录的作用，毕竟好的帖子很值得收藏，主要的原因是记性不好，方便自
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/171124/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-
-     <div>    
-      
-  
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1116,14 +548,11 @@ color:设置窗体的颜色，颜色属性由两个十六进制数字组成，�
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1131,6 +560,10 @@ color:设置窗体的颜色，颜色属性由两个十六进制数字组成，�
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1342,6 +775,10 @@ color:设置窗体的颜色，颜色属性由两个十六进制数字组成，�
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
 
   
 
