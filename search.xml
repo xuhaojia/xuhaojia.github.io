@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[使用BestTrace查看VPS的去程和回程]]></title>
-      <url>/%E4%BD%BF%E7%94%A8BestTrace%E6%9F%A5%E7%9C%8BVPS%E7%9A%84%E5%8E%BB%E7%A8%8B%E5%92%8C%E5%9B%9E%E7%A8%8B/</url>
+      <title><![CDATA[使用BestTrace查看VPS的回程]]></title>
+      <url>/%E4%BD%BF%E7%94%A8BestTrace%E6%9F%A5%E7%9C%8BVPS%E7%9A%84%E5%9B%9E%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
 <li>Ubuntu/Debian：</li>
 </ul>
