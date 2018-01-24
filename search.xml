@@ -8,7 +8,7 @@
       <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
 <li>Ubuntu/Debian：</li>
 </ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install -y wget zip</span><br><span class="line">wget http:<span class="regexp">//</span>source.cc<span class="regexp">/soft/</span>besttrace.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="keyword">get</span> install -y <span class="built_in">zip</span> unzip</span><br><span class="line">wget http:<span class="comment">//source.cc/soft/besttrace.zip</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>CentOS：</li>
 </ul>
