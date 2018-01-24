@@ -3,6 +3,39 @@
   
     
     <entry>
+      <title><![CDATA[使用BestTrace查看VPS的去程和回程]]></title>
+      <url>/%E4%BD%BF%E7%94%A8BestTrace%E6%9F%A5%E7%9C%8BVPS%E7%9A%84%E5%8E%BB%E7%A8%8B%E5%92%8C%E5%9B%9E%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>Ubuntu/Debian：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install -y wget zip</span><br><span class="line">wget http:<span class="regexp">//</span>source.cc<span class="regexp">/soft/</span>besttrace.zip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CentOS：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget zip</span><br><span class="line">wget http:<span class="regexp">//</span>source.cc<span class="regexp">/soft/</span>besttrace.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">unzip</span> <span class="selector-tag">besttrace</span><span class="selector-class">.zip</span></span><br></pre></td></tr></table></figure>
+<h3 id="授予权限"><a href="#授予权限" class="headerlink" title="授予权限"></a>授予权限</h3><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +<span class="keyword">x</span> besttrace</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="keyword">besttrace </span>本地<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
+<h3 id="本地IP如何查看"><a href="#本地IP如何查看" class="headerlink" title="本地IP如何查看"></a>本地IP如何查看</h3><ul>
+<li>百度直接输入<code>IP</code>即可；</li>
+<li>前往<code>www.ipip.net</code>,首页也会显示（推荐）。</li>
+</ul>
+<blockquote>
+<p>使用BestTrace时，有几跳，每跳时哪里，最后总的延迟，也是一模了然的;</p>
+<p>如果回程地址用有<code>59.43</code>字段的，即是代表<code>CN2</code>线路。</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 代理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[安装并配置simple-obfs服务端]]></title>
       <url>/%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEsimple-obfs%E6%9C%8D%E5%8A%A1%E7%AB%AF/</url>
       <content type="html"><![CDATA[<blockquote>
