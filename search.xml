@@ -3,6 +3,38 @@
   
     
     <entry>
+      <title><![CDATA[Mac常用的快捷操作方式]]></title>
+      <url>/Mac%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>用Mac也有一段时间了，日常总有一些快捷操作，写在这里算是备忘。</p>
+<p><strong>1.</strong> 截屏操作</p>
+<ul>
+<li><p>截取全屏 <code>Command + Shift + 3</code></p>
+</li>
+<li><p>自由截取某个区域 <code>Command + Shift + 4</code> (鼠标指定区域)</p>
+</li>
+<li><p>截取某个窗口 <code>Command + Shift + 4 + Space</code> (按完鼠标会变成相机，然后选中窗口就能截取了，很多人不知道这个截屏产生的图像是带窗口阴影了)</p>
+</li>
+<li><p>以上三个截取的时候都会产生一个具体的截屏文件在桌面上，如果不想产生这个文件，可以按住快捷键的同时再按住Control，这样产生的截屏就会直接在剪贴板里了。</p>
+</li>
+</ul>
+<p><strong>2.</strong> 一个特别有用的是，经常在打字的时候需要输入一个emoji表情，通常做法都是打开汉字输入法去里面找，Mac下有一个快捷键可以快速打开emoji表情输入 <code>Command + Control + Space</code> 就会弹出emoji表情的搜索框了😀。</p>
+<p><strong>3.</strong> 比较通用的一个Option辅助按钮，几乎在任何情况下，按住Option操作都能整出一点出其不意的情况，比如按住Option打开前往会出现用户的资源库，按住Option再按，菜单会有变化，比较常用的是窗口的全屏按钮在按住Option之后再按就是普通的全屏了，反之是恢复，等等。</p>
+<p><strong>4.</strong> Finder下前往某个文件夹，<code>Commond + Shift + g</code>，会弹出一个路径输入框，输入具体路径就可以直接打开了，隐藏文件夹也可以。</p>
+<p><strong>5.</strong> 按住<code>Option + Shift</code>再调节音量就可以对每个音量的小格子再细微(4小格)的调整。</p>
+<p><strong>6.</strong> 按住<code>Command + 鼠标拖动可以拖动当前不是激活状态的窗口</code>，并且也不会激活那个窗口。这个还挺常用的。</p>
+<p><strong>7.</strong> 全用<code>MindNode</code>的时候，每个子节点文字多了想换行发现直接Enter不能换行，试了半天才发现按住<code>Option + Enter</code>才是文字里的回车换行。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Mbp </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用BestTrace查看VPS的回程]]></title>
       <url>/%E4%BD%BF%E7%94%A8BestTrace%E6%9F%A5%E7%9C%8BVPS%E7%9A%84%E5%9B%9E%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
