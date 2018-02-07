@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title><![CDATA[oh-my-zsh升级失败的解决方法]]></title>
+      <url>/oh-my-zsh%E5%8D%87%E7%BA%A7%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>今天打开终端之后提示oh-my-zsh可以升级，输入Y之后却提示失败了。<br>错误信息如下：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Updating Oh My Zsh</span><br><span class="line"><span class="keyword">error: </span>cannot pull with rebase: You have unstaged changes.</span><br><span class="line"><span class="keyword">error: </span>please commit or stash them.</span><br><span class="line">There was an error updating. Try again later?</span><br><span class="line">_update_zsh_update:1: permission denied: /XX/OO/.zsh-update</span><br></pre></td></tr></table></figure>
+<ul>
+<li>出现这个问题的原因是我们对<code>.oh-my-zsh</code>文件夹里的内容进行了更改之后没有commit。    </li>
+<li>通过终端进入<code>.oh-my-zsh</code>目录之后输入<code>git status</code>，发现主题文件发生了更改，但是没有commit：modified: themes/agnoster.zsh-theme</li>
+</ul>
+<p>解决方法如下:<br>1、首先commit：<code>git add .</code></p>
+<p>2、然后：<code>git commit -m &#39;theme change&#39;</code></p>
+<p>3、最后：输入<code>git status</code>就会发现目录干净了</p>
+<ul>
+<li>下次再提示更新的时候，就可以正常升级<code>oh-my-zsh</code>了。</li>
+</ul>
+<p>导致升级失败的原因:<br><code>oh-my-zsh</code>也是通过命令行从<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">github</a>上下载安装的，更改主题配置的时候确实改动了一些内容，当时没有执行过commit命令，所以才会造成今天的这个问题。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Mbp </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac常用的快捷操作方式]]></title>
       <url>/Mac%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>用Mac也有一段时间了，日常总有一些快捷操作，写在这里算是备忘。</p>
