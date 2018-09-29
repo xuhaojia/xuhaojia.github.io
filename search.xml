@@ -3,6 +3,91 @@
   
     
     <entry>
+      <title><![CDATA[如何快速登录多个SSH]]></title>
+      <url>/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95%E5%A4%9A%E4%B8%AASSH-1/</url>
+      <content type="html"><![CDATA[<p>记录这篇文章的出发点在于平时用Mac os登录多个SSH时，难得输入用户名和密码，所以找了相关教程，从而有了这篇文章<br>部分内容参照<a href="https://blog.biezhi.me/2017/08/ssh-no-password-login.html" target="_blank" rel="noopener">此处</a></p>
+<blockquote>
+<p>什么是SSH？</p>
+</blockquote>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">传送门</a></li>
+</ul>
+<p>目的<br>在同一台电脑上，登录多个<code>SSH</code>时省去输入用户名和密码的这个环节</p>
+<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><ul>
+<li>生成本地密钥</li>
+<li>在自己的操作系统（Mac os）上生成一对SSH 密钥 <code>SSH KEY</code></li>
+</ul>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa 		<span class="meta">#生成SSH密钥和公钥</span></span><br></pre></td></tr></table></figure>
+<p>这样会在当前目录生成名为<code>id_rsa</code>的私钥文件和名为<code>id_rsa.pub</code>的公钥文件，<code>-t</code>表示密钥类型是<code>rsa</code>。 如果你只输入<code>ssh-keygen</code>生成的RSA密钥长度为<code>2048</code>，如果你对安全性要求比较高可以指定<code>4096</code>位的长度：</p>
+<p><code>ssh-keygen -b 4096 -t rsa</code>  ’-b’为多少位 这里密钥长度为 <code>4096</code> 位</p>
+<p>按照上述操作后，接下来会有<strong>两个</strong>提示</p>
+<blockquote>
+<p>第一个提示</p>
+</blockquote>
+<p>Enter file in which to save the key</p>
+<p>意思是让你确认密钥文件保存的路径， 一般回车即可（一般默认会在~/.ssh目录下）</p>
+<blockquote>
+<p>第二个提示</p>
+</blockquote>
+<p>Enter passphrase (empty for no passphrase)</p>
+<p>意思是让你输入一个密钥的密码，如果不输入则留空；回车生成公私钥完毕。此时你可以使用cat命令看下自己的公私钥。</p>
+<ul>
+<li>把本地密钥上传到服务器上</li>
+</ul>
+<p>检查下<code>.ssh</code>目录下<code>authorized_keys</code>文件是否存在，没有的话，创建一个,然后将<code>id_rsa.pub</code>的内容追加到<code>authorized_keys</code>文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd .ssh 	<span class="comment"># 回到SSH目录</span></span><br><span class="line">touch authorized_keys 	<span class="comment"># 创建authorized_keys文件</span></span><br><span class="line">cat id_rsa.pub <span class="meta">&gt;&gt; </span>authorized_keys 	<span class="comment"># 将id_rsa.pub的内容追加到authorized_keys</span></span><br></pre></td></tr></table></figure>
+<p>接下来是配置<code>.ssh</code>目录和<code>authorized_keys</code>文件的权限，否则会提示<code>server refuse you key</code></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">..</span>    <span class="comment"># 回到主目录</span></span><br><span class="line">chmod 700 <span class="string">.ssh</span>    <span class="comment"># 设置SSH目录权限为700</span></span><br><span class="line">chmod 600 <span class="string">.ssh/authorized_keys</span>    <span class="comment"># 设置authorized_keys文件权限为600，也有文章为400,我设置为前者</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改SSH配置</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="meta-keyword">/etc/</span>ssh/sshd_config <span class="meta"># 登录服务器配置一下sshd_config文件内容</span></span><br></pre></td></tr></table></figure>
+<p>修改如下，就是把下述内容前两行前面的#取消而已</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">RSAAuthentication</span> <span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="string">PubkeyAuthentication</span> <span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># but this is overridden so installations will only check .ssh/authorized_keys</span></span><br><span class="line"> </span><br><span class="line"><span class="string">AuthorizedKeysFile</span> <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<p>修改结束后，重启<code>sshd</code></p>
+<p><code>service sshd restart</code>或者<code>systemctl restart sshd.service</code></p>
+<p>重启结束后，就可以测试一下是不是就可以免密码登录了</p>
+<p>如果测试成功，就可以继续修改<code>vi /etc/ssh/sshd_config</code>文件</p>
+<p>将<code>PasswordAuthentication</code> 设置为<code>no</code>，禁用密码登录了，比较安全</p>
+<p>值得注意的是，一定要确保免密登录成功才能设置为<code>no</code>,否则你会悲剧的，切记.切记！</p>
+<ul>
+<li>加强篇</li>
+</ul>
+<blockquote>
+<p>上述操作能让你登录SSH时免去输入用户名和密码，但是，依然需要输入IP地址和端口号，接下来我们来实现把IP地址和端口号都省去的步骤</p>
+</blockquote>
+<p>我们前面生成<code>sshkey</code>的时候还有一个私钥<code>id_rsa</code>没用到，这是干什么用的呢？ 公钥是公开的，任何人都可以获得，私钥则是保密的，只有本地存储了一份</p>
+<p>配置本地的<code>ssh</code>，修改<code>vi .ssh/config</code>文件</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host yourserver			 # 我们登录的服务器别名，其目的是为了方便登录 如 SSH1</span><br><span class="line">HostName 10.10.10.100	 # 远端服务器IP地址</span><br><span class="line">Port 258369				 # 远端服务器端口号</span><br><span class="line">User username 			 # 远端服务器用户名</span><br><span class="line">IdentityFile ~/.ssh/id_rsa 	# 你的私钥路径</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后两步完成快捷登录</p>
+<ul>
+<li><p>复制私钥 ssh-copy-id 登录用户@服务器IP -p端口</p>
+</li>
+<li><p>使用 ssh yourserver登录</p>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Essence </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何快速登录多个SSH]]></title>
+      <url>/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95%E5%A4%9A%E4%B8%AASSH/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[oh-my-zsh升级失败的解决方法]]></title>
       <url>/oh-my-zsh%E5%8D%87%E7%BA%A7%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>今天打开终端之后提示oh-my-zsh可以升级，输入Y之后却提示失败了。<br>错误信息如下：</p>
