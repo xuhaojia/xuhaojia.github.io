@@ -58,7 +58,7 @@
 </blockquote>
 <p>我们前面生成<code>sshkey</code>的时候还有一个私钥<code>id_rsa</code>没用到，这是干什么用的呢？ 公钥是公开的，任何人都可以获得，私钥则是保密的，只有本地存储了一份</p>
 <p>配置本地的<code>ssh</code>，修改<code>vi .ssh/config</code>文件</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host yourserver			 # 我们登录的服务器别名，其目的是为了方便登录 如 SSH1</span><br><span class="line">HostName 10.10.10.100	 # 远端服务器IP地址</span><br><span class="line">Port 258369				 # 远端服务器端口号</span><br><span class="line">User username 			 # 远端服务器用户名</span><br><span class="line">IdentityFile ~/.ssh/id_rsa 	# 你的私钥路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host yourserver			 # 我们登录的服务器别名，其目的是为了方便登录 如 SSH1</span><br><span class="line">  HostName 10.10.10.100	 # 远端服务器IP地址</span><br><span class="line"> <span class="built_in"> Port </span>258369				 # 远端服务器端口号</span><br><span class="line"> <span class="built_in"> User </span>username 			 # 远端服务器用户名</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa 	# 你的私钥路径</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>最后两步完成快捷登录</p>
 <ul>
