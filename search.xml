@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[如何快速登录多个SSH]]></title>
-      <url>/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95%E5%A4%9A%E4%B8%AASSH-1/</url>
+      <url>/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95%E5%A4%9A%E4%B8%AASSH/</url>
       <content type="html"><![CDATA[<p>记录这篇文章的出发点在于平时用Mac os登录多个SSH时，难得输入用户名和密码，所以找了相关教程，从而有了这篇文章<br>部分内容参照<a href="https://blog.biezhi.me/2017/08/ssh-no-password-login.html" target="_blank" rel="noopener">此处</a></p>
 <blockquote>
 <p>什么是SSH？</p>
@@ -76,14 +76,6 @@
             
         </categories>
         
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[如何快速登录多个SSH]]></title>
-      <url>/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95%E5%A4%9A%E4%B8%AASSH/</url>
-      <content type="html"></content>
-      
         
     </entry>
     
