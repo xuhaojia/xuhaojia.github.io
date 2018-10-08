@@ -145,7 +145,7 @@
 <meta property="og:site_name" content="ixuy&#39;s Blog">
 <meta property="og:description" content="记录这篇文章的出发点在于平时用Mac os登录多个SSH时，难得输入用户名和密码，所以找了相关教程，从而有了这篇文章部分内容参照此处  什么是SSH？   传送门  目的在同一台电脑上，登录多个SSH时省去输入用户名和密码的这个环节 操作过程 生成本地密钥 在自己的操作系统（Mac os）上生成一对SSH 密钥 SSH KEY  1ssh-keygen -t rsa 		#生成SSH密钥和公钥 这">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-29T19:46:25.453Z">
+<meta property="og:updated_time" content="2018-09-29T19:49:16.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何快速登录多个SSH">
 <meta name="twitter:description" content="记录这篇文章的出发点在于平时用Mac os登录多个SSH时，难得输入用户名和密码，所以找了相关教程，从而有了这篇文章部分内容参照此处  什么是SSH？   传送门  目的在同一台电脑上，登录多个SSH时省去输入用户名和密码的这个环节 操作过程 生成本地密钥 在自己的操作系统（Mac os）上生成一对SSH 密钥 SSH KEY  1ssh-keygen -t rsa 		#生成SSH密钥和公钥 这">
@@ -476,7 +476,7 @@
 </blockquote>
 <p>我们前面生成<code>sshkey</code>的时候还有一个私钥<code>id_rsa</code>没用到，这是干什么用的呢？ 公钥是公开的，任何人都可以获得，私钥则是保密的，只有本地存储了一份</p>
 <p>配置本地的<code>ssh</code>，修改<code>vi .ssh/config</code>文件</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host yourserver			 # 我们登录的服务器别名，其目的是为了方便登录 如 SSH1</span><br><span class="line">  HostName 10.10.10.100	 # 远端服务器IP地址</span><br><span class="line"> <span class="built_in"> Port </span>258369				 # 远端服务器端口号</span><br><span class="line"> <span class="built_in"> User </span>username 			 # 远端服务器用户名</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa 	# 你的私钥路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host yourserver			 	 # 我们登录的服务器别名，其目的是为了方便登录 如 SSH1</span><br><span class="line">  HostName 10.10.10.100		 # 远端服务器IP地址</span><br><span class="line"> <span class="built_in"> Port </span>258369					 # 远端服务器端口号</span><br><span class="line"> <span class="built_in"> User </span>username 			   	# 远端服务器用户名</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa 		# 你的私钥路径</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>最后两步完成快捷登录</p>
 <ul>
@@ -706,7 +706,7 @@
 </div>
 
 
-<!-- <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+<!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
